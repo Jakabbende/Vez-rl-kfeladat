@@ -1,0 +1,94 @@
+﻿<Window x:Class="Vezérlők.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vezérlők"
+        mc:Ignorable="d"
+        Title="Vezérlők" Height="600" Width="800" MinHeight="600" MinWidth="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Fájl">
+                <MenuItem Header="Megnyitás"/>
+                <MenuItem Header="Mentés"/>
+                <Separator/>
+                <MenuItem Header="Kilépés"/>
+            </MenuItem>
+            <MenuItem Header="Nézet"/>
+            <MenuItem Header="Súgó"/>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom" Height="40">
+            <Label Content="Kész" VerticalAlignment="Center"/>
+            <ProgressBar Value="40" Width="100" Height="15"/>
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Alap vezérlők" Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <Label Content="Név:"/>
+                        <Label Content="Jelszó:"/>
+                        <CheckBox Content="Felhasználási feltételek elfogadása" x:Name="felhbev"/>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton GroupName="neme" Content="Nő" IsChecked="True" Margin="5"/>
+                            <RadioButton GroupName="neme" Content="Férfi" x:Name="ferfibev" Margin="5"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBox Width="150" x:Name="nevbev" Margin="0,5,0,0"/>
+                        <PasswordBox Width="150" x:Name="jelszbev" Margin="5"/>
+                        <Button Content="Küldés" Width="100" Click="bekuldes"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Lista vezérlők" Grid.Row="1" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Label Content="Listbox"/>
+                        <ListBox MinHeight="100">
+                            <ListBoxItem Content="Alma"/>
+                            <ListBoxItem Content="Körte"/>
+                            <ListBoxItem Content="Banán"/>
+                        </ListBox>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Combobox:"/>
+                        <ComboBox SelectedIndex="0" Width="200">
+                            <ComboBoxItem Content="Tavaszi"/>
+                            <ComboBoxItem Content="Nyári"/>
+                            <ComboBoxItem Content="Őszi"/>
+                            <ComboBoxItem Content="Téli"/>
+                        </ComboBox>
+                        <Label Content="Slider:"/>
+                        <Slider Width="200" Minimum="0" Maximum="100" Value="20"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <Label Content="Progressbar:"/>
+                        <ProgressBar Width="200" Height="20" Value="80"/>
+                        <Label Content="Image:"/>
+                        <Image Source="/WIN_20261103_11_30_39_Pro.jpg" Height="75" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Haladó elemek" Grid.Row="2" Margin="5">
+
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+</Window>
